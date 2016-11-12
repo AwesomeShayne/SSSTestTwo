@@ -32,14 +32,21 @@ namespace SSSTestTwo
 
         public static Bin3D Create(int left, int right, int top, int bottom, int front, int back)
         {
-            Rect3D rect = new Rect3D();
-            rect.X = left;
-            rect.SizeX = right - left;
-            rect.Y = bottom;
-            rect.SizeY = top - bottom;
-            rect.Z = front;
-            rect.Z = back - front;
-            return new Bin3D(rect);
+            try
+            {
+                Rect3D rect = new Rect3D();
+                rect.X = left;
+                rect.SizeX = right - left;
+                rect.Y = bottom;
+                rect.SizeY = top - bottom;
+                rect.Z = front;
+                rect.Z = back - front;
+                return new Bin3D(rect);
+            }
+            catch (Exception e)
+            {
+                return new Bin3D(0, 0, 0, 0, 0, 0);
+            }
         }
 
         public Rect3D ToRect()

@@ -14,6 +14,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -180,8 +181,9 @@ namespace SSSTestTwo
                     }
                     break;
                 case 3:
+                    packages3D = new List<Package3D>();
                     _DimMax = (_Inputs[0].Split(':')[1].Split(','));
-                    Max = new int[2];
+                    Max = new int[3];
                     Max[0] = Convert.ToInt16(_DimMax[0]);
                     Max[1] = Convert.ToInt16(_DimMax[1]);
                     Max[2] = Convert.ToInt16(_DimMax[2]);
@@ -218,7 +220,8 @@ namespace SSSTestTwo
             StepSlider.Value = 0;
             PreviousButton.IsEnabled = true;
             NextButton.IsEnabled = true;
-            throw new NotImplementedException();
+            
+            Visualizer3D.Children.Add(containers3D[0].BinImage());
         }
 
         private void StepSlider_ValueChanged3D(object sender, RoutedPropertyChangedEventArgs<double> e)

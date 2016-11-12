@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
 namespace SSSTestTwo
@@ -16,7 +17,7 @@ namespace SSSTestTwo
         public List<Package3D> Packages;
         int packageCount = 0;
 
-        public Container3D (int width, int height, int depth)
+        public Container3D(int width, int height, int depth)
         {
             Width = width;
             Height = height;
@@ -61,7 +62,7 @@ namespace SSSTestTwo
             if (collision) return false;
             Packages.Add(package);
             // Now we break apart the bins
-            foreach(Bin3D bin in Bins.ToArray())
+            foreach (Bin3D bin in Bins.ToArray())
             {
                 Bins.Remove(bin);
                 Bins.AddRange(bin.Subtract(package.ToRect()));
@@ -69,6 +70,43 @@ namespace SSSTestTwo
             packageCount++;
             package.Number = packageCount;
             return true;
+        }
+
+        public ModelVisual3D BinImage()
+        {
+            Model3DGroup myModel3DGroup = new Model3DGroup();
+            
+            ModelVisual3D myModelVisual3D = new ModelVisual3D();
+            // Defines the camera used to view the 3D object. In order to view the 3D object,
+            // the camera must be positioned and pointed such that the object is within view 
+            // of the camera.           
+
+            // Asign the camera to the viewport
+            // Define the lights cast in the scene. Without light, the 3D object cannot 
+            // be seen. Note: to illuminate an object from additional directions, create 
+            // additional lights.
+            DirectionalLight myDirectionalLight = new DirectionalLight();
+            myDirectionalLight.Color = Colors.White;
+            myDirectionalLight.Direction = new Vector3D(-0.61, -0.5, -0.61);
+
+            myModel3DGroup.Children.Add(myDirectionalLight);
+
+            // The geometry specifes the shape of the 3D plane. In this sample, a flat sheet 
+            // is created.
+
+            // Create a collection of normal vectors for the MeshGeometry3D.
+            
+
+            // Add the geometry model to the model group.
+            foreach (Package3D Box in Packages)
+            {
+                myModel3DGroup.Children.Add(Box.GetModel());
+            }
+
+            // Add the group of models to the ModelVisual3d.
+            myModelVisual3D.Content = myModel3DGroup;
+            return myModelVisual3D;
+            // 
         }
 
     }
