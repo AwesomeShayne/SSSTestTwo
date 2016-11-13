@@ -13,6 +13,7 @@ namespace SSSTestTwo
         public int Width;
         public int Height;
         public int Depth;
+        
         public List<Bin3D> Bins;
         public List<Package3D> Packages;
         int packageCount = 0;
@@ -85,17 +86,12 @@ namespace SSSTestTwo
             // Define the lights cast in the scene. Without light, the 3D object cannot 
             // be seen. Note: to illuminate an object from additional directions, create 
             // additional lights.
+
             DirectionalLight myDirectionalLight = new DirectionalLight();
             myDirectionalLight.Color = Colors.White;
             myDirectionalLight.Direction = new Vector3D(-0.61, -0.5, -0.61);
 
             myModel3DGroup.Children.Add(myDirectionalLight);
-
-            // The geometry specifes the shape of the 3D plane. In this sample, a flat sheet 
-            // is created.
-
-            // Create a collection of normal vectors for the MeshGeometry3D.
-            
 
             // Add the geometry model to the model group.
             foreach (Package3D Box in Packages)

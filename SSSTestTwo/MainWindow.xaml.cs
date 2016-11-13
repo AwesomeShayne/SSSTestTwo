@@ -133,10 +133,6 @@ namespace SSSTestTwo
                             c.AddBox(box);
                         }
                     }
-                    foreach (Container3D container in containers3D)
-                    {
-
-                    }
                     StepBox.Items.Add(String.Concat("\nThis test used ", containers3D.Count, " bins"));
                     Start3DVisualizer();
                     break;
@@ -220,7 +216,19 @@ namespace SSSTestTwo
             StepSlider.Value = 0;
             PreviousButton.IsEnabled = true;
             NextButton.IsEnabled = true;
-            
+            PerspectiveCamera myPCamera = new PerspectiveCamera();
+
+            // Specify where in the 3D scene the camera is.
+            myPCamera.Position = new Point3D(50, 50, 600);
+
+            // Specify the direction that the camera is pointing.
+            myPCamera.LookDirection = new Vector3D(0, 0, -1);
+
+            // Define camera's horizontal field of view in degrees.
+            myPCamera.FieldOfView = 60;
+
+            // Asign the camera to the viewport
+            Visualizer3D.Camera = myPCamera;
             Visualizer3D.Children.Add(containers3D[0].BinImage());
         }
 
