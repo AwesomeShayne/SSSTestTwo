@@ -40,7 +40,7 @@ namespace SSSTestTwo
                 rect.Y = bottom;
                 rect.SizeY = top - bottom;
                 rect.Z = front;
-                rect.Z = back - front;
+                rect.SizeZ = back - front;
                 return new Bin3D(rect);
             }
             catch (Exception e)
@@ -113,38 +113,35 @@ namespace SSSTestTwo
                  * 
                  */
                 Bin3D bin;
-                bin = Create(b, c, e, f, i, j); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, f, g, i, j); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(c, d, f, g, i, j); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(b, c, g, h, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, f, e, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, f, e, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, f, e, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, g, f, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, g, f, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, g, f, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, h, g, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, h, g, i, j); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, h, g, i, j); if (bin.Volume() > 0) result.Add(bin);
 
-                bin = Create(a, b, f, g, j, k); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(b, c, e, f, j, k); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(b, c, g, h, j, k); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(c, d, f, g, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, f, e, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, f, e, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, f, e, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, g, f, j, k); if (bin.Volume() > 0) result.Add(bin);
+                                         
+                bin = Create(c, d, g, f, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, h, g, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, h, g, j, k); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, h, g, j, k); if (bin.Volume() > 0) result.Add(bin);
 
-                bin = Create(b, c, e, f, k, l); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, f, g, k, l); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(c, d, f, g, k, l); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(b, c, g, h, k, l); if (bin.Volume() > 0) result.Add(bin);
-
-                bin = Create(c, d, g, h, i, j); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, e, f, i, j); if (bin.Volume() > 0) result.Add(bin);
-
-                bin = Create(c, d, g, h, j, k); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, e, f, j, k); if (bin.Volume() > 0) result.Add(bin);
-
-                bin = Create(c, d, g, h, k, l); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, e, f, k, l); if (bin.Volume() > 0) result.Add(bin);
-
-                bin = Create(c, d, e, f, i, j); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, g, h, i, j); if (bin.Volume() > 0) result.Add(bin);
-
-                bin = Create(c, d, e, f, j, k); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, g, h, j, k); if (bin.Volume() > 0) result.Add(bin);
-
-                bin = Create(c, d, e, f, k, l); if (bin.Volume() > 0) result.Add(bin);
-                bin = Create(a, b, g, h, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, f, e, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, f, e, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, f, e, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, g, f, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, g, f, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, g, f, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(a, b, h, g, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(b, c, h, g, k, l); if (bin.Volume() > 0) result.Add(bin);
+                bin = Create(c, d, h, g, k, l); if (bin.Volume() > 0) result.Add(bin);
             }
             return result;
         }

@@ -89,7 +89,7 @@ namespace SSSTestTwo
 
             DirectionalLight myDirectionalLight = new DirectionalLight();
             myDirectionalLight.Color = Colors.White;
-            myDirectionalLight.Direction = new Vector3D(-0.61, -0.5, -0.61);
+            myDirectionalLight.Direction = new Vector3D(-1, -1, -3);
 
             myModel3DGroup.Children.Add(myDirectionalLight);
 

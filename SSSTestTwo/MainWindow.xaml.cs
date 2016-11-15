@@ -219,10 +219,10 @@ namespace SSSTestTwo
             PerspectiveCamera myPCamera = new PerspectiveCamera();
 
             // Specify where in the 3D scene the camera is.
-            myPCamera.Position = new Point3D(50, 50, 600);
+            myPCamera.Position = new Point3D(-400, 400, 400);
 
             // Specify the direction that the camera is pointing.
-            myPCamera.LookDirection = new Vector3D(0, 0, -1);
+            myPCamera.LookDirection = new Vector3D(400, -400, -400);
 
             // Define camera's horizontal field of view in degrees.
             myPCamera.FieldOfView = 60;
