@@ -219,10 +219,10 @@ namespace SSSTestTwo
             PerspectiveCamera myPCamera = new PerspectiveCamera();
 
             // Specify where in the 3D scene the camera is.
-            myPCamera.Position = new Point3D(-400, 400, 400);
+            myPCamera.Position = new Point3D(-700, 700, 700);
 
             // Specify the direction that the camera is pointing.
-            myPCamera.LookDirection = new Vector3D(400, -400, -400);
+            myPCamera.LookDirection = new Vector3D(700, -700, -700);
 
             // Define camera's horizontal field of view in degrees.
             myPCamera.FieldOfView = 60;
@@ -234,7 +234,8 @@ namespace SSSTestTwo
 
         private void StepSlider_ValueChanged3D(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            throw new NotImplementedException();
+            Visualizer3D.Children.RemoveAt(0);
+            Visualizer3D.Children.Add(containers3D[(int)e.NewValue].BinImage());
         }
 
         private void StepSlider_ValueChanged2D(object sender, RoutedPropertyChangedEventArgs<double> e)

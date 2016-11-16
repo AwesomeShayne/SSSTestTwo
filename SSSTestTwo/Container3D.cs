@@ -38,6 +38,7 @@ namespace SSSTestTwo
         public bool AddBox(Package3D package)
         {
             bool collision = false;
+            if (Bins.Count == 0) return false;
             foreach (Bin3D bin in Bins)
             {
                 // Ensure that we start by assuming that it isn't colliding
@@ -47,7 +48,7 @@ namespace SSSTestTwo
                 package.Y = bin.Y;
                 package.Z = bin.Z;
                 // Does it fit?
-                if ((Width - package.X) >= package.Width && (Height - package.Y) >= package.Height && (Depth - package.Z) >= package.Depth)
+                if (((Width - package.X) >= package.Width) && ((Height - package.Y) >= package.Height) && ((Depth - package.Z) >= package.Depth))
                 {
                     //Does it collide?
                     foreach (Package3D other in Packages)
@@ -58,6 +59,7 @@ namespace SSSTestTwo
                     }
                     if (!collision) break;
                 }
+                collision = true;
             }
             // if it won't fit in the container GTFO
             if (collision) return false;
@@ -66,6 +68,10 @@ namespace SSSTestTwo
             foreach (Bin3D bin in Bins.ToArray())
             {
                 Bins.Remove(bin);
+                if (Bins.Count == 0)
+                {
+                    int i = 1;
+                }
                 Bins.AddRange(bin.Subtract(package.ToRect()));
             }
             packageCount++;

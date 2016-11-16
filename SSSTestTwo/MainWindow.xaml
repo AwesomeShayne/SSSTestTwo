@@ -89,7 +89,7 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="5"
                         IsSnapToTickEnabled="True"
-                        TickFrequency="1" ValueChanged="StepSlider_ValueChanged2D"/>
+                        TickFrequency="1"/>
 
                 <Button Name="PreviousButton"
                         Content="&lt;"
