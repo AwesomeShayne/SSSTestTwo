@@ -98,8 +98,15 @@ namespace SSSTestTwo
             mesh.TriangleIndices.Add(5);
             mesh.TriangleIndices.Add(7);
             model.Geometry = mesh;
-            model.Material = new DiffuseMaterial(Brushes.Red);
-            model.BackMaterial = new DiffuseMaterial(Brushes.CadetBlue);
+
+            Random Rand = new Random();
+
+            var _R = Rand.Next(0, 256);
+            var _G = Rand.Next(0, 256);
+            var _B = Rand.Next(0, 256);
+            Color _FillColor = Color.FromArgb(60, (byte)_R, (byte)_G, (byte)_B);
+            model.Material = new DiffuseMaterial(new SolidColorBrush(_FillColor));
+            // model.BackMaterial = new DiffuseMaterial(Brushes.CadetBlue);
 
             Transform3DGroup both = new Transform3DGroup();
             both.Children.Add(new ScaleTransform3D(Width, Height, Depth));
